@@ -13,14 +13,14 @@ pipeline {
             }
         }
           
-        stage('Build') {
-            steps {
-              script {
-                gv.buildApp()
-              }
+       // stage('Build') {
+         //   steps {
+           //   script {
+             //   gv.buildApp()
+              //}
             
-            }
-        }
+            //}
+        //}
         
         stage('Test') {
             steps {
