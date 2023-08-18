@@ -1,28 +1,49 @@
+def gv
 
 pipeline {
     agent any
    
+   environment {
+      NEW_VERSION = "1.1.3"
+   }
+
     stages {
+        stage('init') {
+            steps {
+               gv = load "script.groovy"
+            }
+        }
           
         stage('Build') {
             steps {
-              
-               echo "Build generated successfully"
+              script{
+                gv.build()
+              }
+            
             }
         }
         
         stage('Test') {
             steps {
-             echo "Test completed "
+                script {
+             gv.test()
+             }
         } 
             }
         
         
         stage('Deploy') {
             steps {
-         echo "Application successfully deployed"
+         script {
+            gv.deploy()
+         }
         }
         
     }
+    }
+    post {
+        success {
+            echo "application configured and pipeline ran successfully"
+        }
     }
 }
