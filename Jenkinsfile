@@ -5,24 +5,24 @@ pipeline {
    
 
     stages {
-        stage('init') {
+        stage("init") {
             steps {
                 script {
-               gv = load ('script.groovy')
+               gv = load('script.groovy')
                }
             }
         }
           
-        stage('Build') {
+        stage("Build") {
             steps {
               script {
-                gv.buildApp()
+                gv.testApp()
               }
             
             }
         }
         
-        stage('Test') {
+        stage("Test") {
             steps {
                 script {
              gv.testApp()
@@ -31,7 +31,7 @@ pipeline {
             }
         
         
-        stage('Deploy') {
+        stage("Deploy") {
             steps {
          script {
             gv.deployApp()
