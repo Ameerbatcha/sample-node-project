@@ -7,9 +7,7 @@ pipeline {
         stage('build') {
             steps {
                 node('Built-In Node') {
-                    script {
-                        gv.buildApp()
-                    }
+                    gv.buildApp()
                 }
             }
         }
@@ -17,9 +15,7 @@ pipeline {
         stage('Test') {
             steps {
                 node('Built-In Node') {
-                    script {
-                        gv.testApp()
-                    }
+                    gv.testApp()
                 }
             }
         }
@@ -27,9 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 node('Built-In Node') {
-                    script {
-                        gv.deployApp()
-                    }
+                    gv.deployApp()
                 }
             }
         }
