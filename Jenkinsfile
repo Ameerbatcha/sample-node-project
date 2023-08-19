@@ -13,10 +13,10 @@ pipeline {
             }
         }
           
-        stage("Build") {
+        stage('Build') {
             steps {
               script {
-                gv.testApp()
+                gv.buildApp()
               }
             
             }
