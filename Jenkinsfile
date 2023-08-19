@@ -7,9 +7,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    node('label2') {
                     gv.testApp()
-                         }
                 }
             }
         }
@@ -17,7 +15,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    node('label'){
                     gv.deployApp()
                 }
             }
@@ -29,5 +26,4 @@ pipeline {
             echo "Application configured and pipeline ran successfully"
         }
     }
-}
 }
