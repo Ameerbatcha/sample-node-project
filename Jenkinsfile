@@ -1,45 +1,36 @@
-def gv 
+def gv = load('script.groovy')
 
 pipeline {
-    
-agent none
+    agent any
+
     stages {
-           stage('init') {
+        stage('build') {
             steps {
-               
-                    script {
-                       gv = load('script.groovy')
-                    }
-               
-            }
-        }
-        stage('Build') {
-            steps {
-               
+                node('Built-In Node') {
                     script {
                         gv.buildApp()
                     }
-              
+                }
             }
         }
         
         stage('Test') {
             steps {
-              
+                node('Built-In Node') {
                     script {
                         gv.testApp()
                     }
-               
+                }
             }
         }
         
         stage('Deploy') {
             steps {
-               
+                node('Built-In Node') {
                     script {
                         gv.deployApp()
                     }
-          
+                }
             }
         }
     }
