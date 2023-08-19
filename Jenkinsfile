@@ -1,21 +1,35 @@
 def gv = load('script.groovy')
 
 pipeline {
-    agent any
+    agent none
 
     stages {
+        stage('Build') {
+            steps {
+                node('your-agent-label') {
+                    script {
+                      def  gv.buildApp()
+                    }
+                }
+            }
+        }
+        
         stage('Test') {
             steps {
-                script {
-                    gv.testApp()
+                node('your-agent-label') {
+                    script {
+                      def  gv.testApp()
+                    }
                 }
             }
         }
         
         stage('Deploy') {
             steps {
-                script {
-                    gv.deployApp()
+                node('your-agent-label') {
+                    script {
+                      def  gv.deployApp()
+                    }
                 }
             }
         }
