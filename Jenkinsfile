@@ -6,7 +6,7 @@ pipeline {
     stages {
            stage('init') {
             steps {
-                node('your-agent-label') {
+                node {
                     script {
                        gv = load('script.groovy')
                     }
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                node('your-agent-label') {
+                node {
                     script {
                         gv.buildApp()
                     }
@@ -25,7 +25,7 @@ pipeline {
         
         stage('Test') {
             steps {
-                node('your-agent-label') {
+                node {
                     script {
                         gv.testApp()
                     }
@@ -35,7 +35,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                node('your-agent-label') {
+                node {
                     script {
                         gv.deployApp()
                     }
