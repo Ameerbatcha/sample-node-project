@@ -1,4 +1,4 @@
-def gv = load('/sample-node-project/script.groovy')
+def gv = load('script.groovy')
 
 pipeline {
     agent any
