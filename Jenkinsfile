@@ -4,26 +4,32 @@ pipeline {
     agent any
 
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                node('Built-In Node') {
-                    gv.buildApp()
+                script {
+                    node {
+                        gv.buildApp()
+                    }
                 }
             }
         }
         
         stage('Test') {
             steps {
-                node('Built-In Node') {
-                    gv.testApp()
+                script {
+                    node {
+                        gv.testApp()
+                    }
                 }
             }
         }
         
         stage('Deploy') {
             steps {
-                node('Built-In Node') {
-                    gv.deployApp()
+                script {
+                    node {
+                        gv.deployApp()
+                    }
                 }
             }
         }
