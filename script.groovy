@@ -1,16 +1,16 @@
-import groovy.transform.NonCPS
+// import groovy.transform.NonCPS
 
-@NonCPS
+// @NonCPS
 def testApp() {
   echo "TEST done successfully"
 }
 
-@NonCPS
+// @NonCPS
 def buildApp() {
   echo "Build generated successfully FOR VERSION "
 }
 
-@NonCPS
+// @NonCPS
 def deployApp() {
   echo "Application Deployed successfully"
 }
