@@ -7,7 +7,7 @@ pipeline {
         stage('Test') {
             steps {
                 node {
-                    script {
+                    script('testing') {
                         gv.testApp()
                     }
                 }
@@ -16,7 +16,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                node {
+                node('deploying') {
                     script {
                         gv.deployApp()
                     }
