@@ -1,33 +1,31 @@
-def gv = load('script.groovy')
+node {
+    def gv = load('script.groovy')
 
-pipeline {
-    agent any
+    pipeline {
+        agent any
 
-    stages {
-        stage('Test') {
-            steps {
-                node('testing') {
-                    script('testing') {
+        stages {
+            stage('Test') {
+                steps {
+                    script {
                         gv.testApp()
                     }
                 }
             }
-        }
-        
-        stage('Deploy') {
-            steps {
-                node('deploying') {
+
+            stage('Deploy') {
+                steps {
                     script {
                         gv.deployApp()
                     }
                 }
             }
         }
-    }
-    
-    post {
-        success {
-            echo "Application configured and pipeline ran successfully"
+
+        post {
+            success {
+                echo "Application configured and pipeline ran successfully"
+            }
         }
     }
 }
