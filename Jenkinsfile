@@ -6,16 +6,20 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                script {
-                    gv.testApp()
+                node {
+                    script {
+                        gv.testApp()
+                    }
                 }
             }
         }
         
         stage('Deploy') {
             steps {
-                script {
-                    gv.deployApp()
+                node {
+                    script {
+                        gv.deployApp()
+                    }
                 }
             }
         }
