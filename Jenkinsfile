@@ -1,14 +1,4 @@
-def testApp() {
-    echo "TEST done successfully"
-}
-
-def buildApp() {
-    echo "Build generated successfully FOR VERSION "
-}
-
-def deployApp() {
-    echo "Application Deployed successfully"
-}
+def gv = load('script.groovy')
 
 pipeline {
     agent any
@@ -17,7 +7,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    testApp()
+                    gv.testApp()
                 }
             }
         }
@@ -25,7 +15,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    deployApp()
+                    gv.deployApp()
                 }
             }
         }
