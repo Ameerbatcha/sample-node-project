@@ -8,7 +8,7 @@ pipeline {
             steps {
                 node('your-agent-label') {
                     script {
-                      def  gv.buildApp()
+                        gv.buildApp()
                     }
                 }
             }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 node('your-agent-label') {
                     script {
-                      def  gv.testApp()
+                        gv.testApp()
                     }
                 }
             }
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 node('your-agent-label') {
                     script {
-                      def  gv.deployApp()
+                        gv.deployApp()
                     }
                 }
             }
