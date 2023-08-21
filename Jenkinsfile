@@ -2,7 +2,6 @@ def gv
 
 pipeline {
     agent any
-   
 
     stages {
        
@@ -17,34 +16,38 @@ pipeline {
           
         stage('Build') {
             steps {
-              script {
-                gv.buildApp()
-              }
-            
+                script {
+                    node {
+                        gv.buildApp()
+                    }
+                }
             }
         }
         
-        stage("Test") {
+        stage('Test') {
             steps {
                 script {
-             gv.testApp()
-             }
-        } 
+                    node {
+                        gv.testApp()
+                    }
+                }
             }
-        
-        
-        stage("Deploy") {
-            steps {
-         script {
-            gv.deployApp()
-         }
         }
         
+        stage('Deploy') {
+            steps {
+                script {
+                    node {
+                        gv.deployApp()
+                    }
+                }
+            }
+        }
     }
-    }
+    
     post {
         success {
-            echo "application configured and pipeline ran successfully"
+            echo "Application configured and pipeline ran successfully"
         }
     }
 }
