@@ -8,6 +8,9 @@ choice(name:'VERSION',choices:['1.1.0','1.1.2','1.1.3'],description:'')
 booleanParam(name:'executeTest',defaultValue:'true',description:'')
 
 }
+environment {
+    PROVIDED_CREDENTIALS = credentials('linus-credentials')
+}
     stages {
        
           stage('init') {
