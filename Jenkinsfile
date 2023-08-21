@@ -9,6 +9,7 @@ booleanParam(name:'executeTest',defaultValue: true,description:'')
 
 }
 environment {
+    STAGE = '2'
     PROVIDED_CREDENTIALS = credentials('linus-credentials')
 }
     stages {
