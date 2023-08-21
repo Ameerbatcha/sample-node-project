@@ -15,4 +15,6 @@ def deployApp() {
   echo "Application Deployed successfully"
 }
 
+return this
+
 
