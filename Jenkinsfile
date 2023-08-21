@@ -3,6 +3,11 @@ def gv
 pipeline {
     agent any
 
+parameters{
+choice(name:'VERSION',choices:['1.1.0','1.1.2','1.1.3'],description:'')
+booleanParam(name:'executeTest',defaultvalue:'true',description:'')
+
+}
     stages {
        
           stage('init') {
@@ -15,6 +20,11 @@ pipeline {
         }
           
         stage('Build') {
+            when {
+                expression {
+                   BRANCH_NAME == 'dev' && params.executeTest == true
+                }
+            }
             steps {
                 script {
                     node {
