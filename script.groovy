@@ -1,7 +1,7 @@
 def testApp() {
   echo "TEST completed successfully "
   echo "Calling credentials ${PROVIDED_CREDENTIALS} "
-  sh " ${PROVIDED_CREDENTIALS} "
+  echo "Calling credentials ${STAGE} "
 
   
 }
